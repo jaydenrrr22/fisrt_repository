@@ -1,1 +1,0 @@
-print("Welcome <Jayden Ryu> to the Software Engineering course!")
