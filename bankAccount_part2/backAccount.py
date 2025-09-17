@@ -1,33 +1,34 @@
 class BankAccount:
     bank_title = "Chase Bank"
 
-    def __init__(self, customer_name, customer_balance, minimum_balance):
-        self.customerName = customer_name
-        self.customerBalance = customer_balance
-        self.minBalance = minimum_balance
+    def __init__(self, customer_name, customer_balance, minimum_balance, account_number, routing_number):
+        self._customerName = customer_name
+        self._customerBalance = customer_balance
+        self._minBalance = minimum_balance
+        self.__account_number = account_number
+        self.__routing_number = routing_number
 
     def deposit(self, amount):
         if amount > 0:
-            self.customerBalance += amount
-            print(f"{self.customerName} deposited {amount}. Current balance: {self.customerBalance}")
+            self._customerBalance += amount
+            print(f"{self._customerName} deposited {amount}. Current balance: {self._customerBalance}")
         else:
             print("Deposit must be positive")
 
     def withdraw(self, amount):
         if amount <= 0:
             print("Withdraw must be positive")
-        if self.customerBalance - amount < self.minBalance:
+        if self._customerBalance - amount < self._minBalance:
             print("Withdraw cannot be less than minimum balance")
         else:
-            self.customerBalance -= amount
-            print(f"{self.customerName} withdrawed {amount}. Current balance: {self.customerBalance}")
+            self._customerBalance -= amount
+            print(f"{self._customerName} withdrawed {amount}. Current balance: {self._customerBalance}")
 
     def print_customer_information(self):
         print(f"Bank Name: {BankAccount.bank_title}")
-        print(f"Customer Name: {self.customerName}")
-        print(f"Customer Balance: {self.customerBalance}")
-        print(f"Minimum Balance: {self.minBalance}")
-
+        print(f"Customer Name: {self._customerName}")
+        print(f"Customer Balance: {self._customerBalance}")
+        print(f"Minimum Balance: {self._minBalance}")
 
 print()
 account1 = BankAccount("Jayden", 1000, 100)
