@@ -3,7 +3,7 @@ from backAccount import BankAccount
 class CheckingAccount(BankAccount):
     def __init__(self, customer_name, customer_balance, minimum_balance, account_number, routing_number, transfer_limit):
         super().__init__(customer_name, customer_balance, minimum_balance, account_number, routing_number)
-        self._transfer_limit = 1000
+        self._transfer_limit = transfer_limit
 
     def transfer(self, amount):
         if amount <= 0:
