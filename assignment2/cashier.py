@@ -7,22 +7,25 @@ class Cashier:
            Hint: include input() function here, e.g. input("how many quarters?: ")"""
         ###
         print("Please insert coins.")
-        quarters = int(input("How many quarters?: ")) * 0.25
-        dimes = int(input("How many dimes?: ")) * 0.1
-        nickles = int(input("How many nickles?: ")) * 0.05
-        pennies = int(input("How many pennies?: ")) * 0.01
-        total = quarters + dimes + nickles + pennies
+        dollars = int(input("How many large dollars?: "))
+        half_dollars = int(input("How many half dollars?: "))
+        quarters = int(input("How many quarters?: "))
+        nickels = int(input("How many nickels?: "))
+
+        total = dollars + (half_dollars * 0.5) + (quarters * 0.25) + (nickels * 0.05)
         return total
 
     def transaction_result(self, coins, cost):
         """Return True when the payment is accepted, or False if money is insufficient.
            Hint: use the output of process_coins() function for cost input"""
         ##
-        if coins >= cost:
-            change = cost - coins
-            if change > 0:
-                print(f"Here is ${change} in change.")
-            return True
-        else:
-            print("That is not enough coins. Money refunded.")
+        if coins < cost:
+            print("Sorry that's not enough money. Money refunded.")
             return False
+        change = coins - cost
+        if change > 0:
+            print(f"Here is ${change:.2f} in change.")
+        else:
+            print("Here is $0.0 in change.")
+        return True
+
