@@ -5,8 +5,7 @@ from ..models import models
 
 def create(db: Session, sandwich):
     db_sandwich = models.Sandwich(
-        name=sandwich.name,
-        description=sandwich.description,
+        sandwich_name=sandwich.sandwich_name,
         price=sandwich.price,
     )
     db.add(db_sandwich)
